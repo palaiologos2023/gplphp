@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- Εφαρμογή 12: Ιστοσελίδα με φόρμες για τη μεταφορά 
+     δεδομένων σε εφαρμογή στον εξυπηρετητή 
+     Αρχείο p12.html
+-->
+<html lang="el-GR">
+    <head>
+        <title>Poli di Castro Pizza</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Ο συγγραφέας">
+        <meta name="description" content="Φόρμες παραγγελίας">
+        <link rel="icon" href="pizza.png">
+        <style>
+            body {
+                background-attachment: fixed;
+                background-color: BurlyWood;
+                background-image: url("pizza.png");
+                background-repeat: repeat;
+            }
+            div {
+                opacity: 0.8;
+                color: navy;
+                font-size: 1.1em;
+                font-family: Georgia, serif;
+                font-weight: bolder;
+                vertical-align:top;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #forma1 {
+                background-color: plum;
+            }
+            #forma2 {
+                background-color: gainsboro;
+            }
+            .sub {
+                position: relative;
+                width:40%;
+                left: 30%;
+            }
+            h1 {
+                color: white;
+                text-align: center;
+                font-size: 2em;
+                font-family: Georgia, serif;
+                text-shadow: 1px 1px 10px navy;
+            }
+            h2 {
+                text-align: center;
+            }
+        </style>        
+    </head>
+    <body>
+        <h1>Μόνο μερικά κλικ σας χωρίζουν από μια λαχταριστή pizza!<br>
+            Επιλέξτε...</h1>
+        <div class="forma">
+            <!-- στο action συμπληρώνουμε το URL της διαδρομής του αρχείου 
+                 p12-server-script.php στον τοπικό εξυπηρετητή-->
+            <form id="forma1" name="pizzaweb1" action="./p12-server-script.php" 
+                  method="post">
+                <h2>Έτοιμες συνθέσεις, για γρήγορη επιλογή</h2>
+                <p><input type="radio" name="synthesi" value="elliniki">Φέτα, 
+                    ροδέλες ντομάτας, κρεμμύδια, ελιές πάνω σε σάλτσα ντομάτας, 
+                    πασπαλισμένα με ρίγανη και ελαιόλαδο.</p>
+                <p><input type="radio" name="synthesi" value="kokkini">Μπέικον, 
+                    ζαμπόν και ροδέλες πιπεριάς πάνω σε σάλτσα ντομάτας, καλά 
+                    καλυμμένα με μπόλικη γραβιέρα.</p>
+                <p><input type="radio" name="synthesi" value="prasini">Κομματάκια
+                    μπρόκολο και ροδέλες κρεμμύδι πάνω σε σάλτσα αβοκάντο, κάτω 
+                    από μια πλούσια στρώση γκούντα.</p>
+                <p>Τεμάχια: <input type="text" name="temaxia" value="1" 
+                                   size="3"></p>
+                <p>Όνομα:<input type="text" name="onoma" size="20"></p>
+                <p>Διεύθυνση:<input type="text" name="diefthinsi" size="30"></p>
+                <p>Τηλέφωνο:<input type="text" name="tilefono" size="10"></p>
+                <p><input class="sub" type="submit" name="submit-synthesi" 
+                          value="Παραγγελία!"></p>
+            </form>
+        </div>
+        <div class="forma">
+            <!-- στο action συμπληρώνουμε το URL της διαδρομής του αρχείου 
+                 p12-server-script.php στον τοπικό εξυπηρετητή-->
+            <form id="forma2" name="pizzaweb2" action="./p12-server-script.php" 
+                  method="post">
+                <h2>Φτιάξτε τη δική σας σύνθεση</h2>
+                <h3>Επιλογή υλικών</h3>
+                <p><input type="checkbox" name="yliko[0]" value="μανιτάρια"> 
+                    μανιτάρια</p>
+                <p><input type="checkbox" name="yliko[1]" value="ζαμπόν"> 
+                    ζαμπόν</p>
+                <p><input type="checkbox" name="yliko[2]" value="μπέικον"> 
+                    μπέικον</p>
+                <p><input type="checkbox" name="yliko[3]" value="πιπεριά"> 
+                    πιπεριά</p>
+                <p><input type="checkbox" name="yliko[4]" value="ελιές"> 
+                    ελιές</p>
+                <p><input type="checkbox" name="yliko[5]" value="μπρόκολο"> 
+                    μπρόκολο</p>
+                <p><input type="checkbox" name="yliko[6]" value="κρεμμύδι"> 
+                    κρεμύδι</p>
+                <p><input type="checkbox" name="yliko[7]" 
+                          value="σάλτσα ντομάτας"> σάλτσα ντομάτας</p>
+                <p><input type="checkbox" name="yliko[8]" value="φέτα"> φέτα</p>
+                <h3>Επιλογή ζύμης</h3>
+                <p><input type="radio" name="zymi" value="αφράτη"> αφράτη</p>
+                <p><input type="radio" name="zymi" value="τραγανή"> τραγανή</p>
+                <p><input type="radio" name="zymi" value="αφράτη με σκόρδο"> 
+                    αφράτη με σκόρδο</p>
+                <p><input type="radio" name="zymi" value="τραγανή με κασέρι 
+                          στην περίμετρο"> τραγανή με τυρί στη ζύμη</p>
+                <p>Τεμάχια:<input type="text" name="temaxia" value="1" 
+                                  size="3"></p>
+                <p>Όνομα:<input type="text" name="onoma" size="20"></p>
+                <p>Διεύθυνση:<input type="text" name="diefthinsi" size="30"></p>
+                <p>Τηλέφωνο:<input type="text" name="tilefono" size="10"></p>
+                <p><input class="sub" type="submit" name="submit-epilogi" 
+                          value="Παραγγελία!"></p>
+            </form>
+        </div>
+    </body>
+</html>
